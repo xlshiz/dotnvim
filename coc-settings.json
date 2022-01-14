@@ -1,0 +1,31 @@
+{
+	"snippets.ultisnips.enable": false,
+	"snippets.ultisnips.usePythonx": false,
+	"snippets.snipmate.enable": true,
+	"languageserver": {
+		"clangd":
+                  {
+                          "command": "clangd",
+                          "rootPatterns": ["compile_flags.txt",
+                                          "compile_commands.json"],
+                          "filetypes":["c",
+                                          "cc",
+                                          "cpp",
+                                          "c++",
+                                          "objc",
+                                          "objcpp"]
+                  },
+		"go": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+			"filetypes": ["go"],
+			"initializationOptions": {
+				"usePlaceholders": true
+			},
+			"disabled": {
+				"workspaceFolders": true
+			}
+		}
+	},
+	"vetur.validation.template": false
+}
