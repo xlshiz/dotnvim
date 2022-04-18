@@ -15,6 +15,15 @@ require('telescope').setup{
                 ["<esc>"] = require('telescope.actions').close,
                 [",."] = {"<esc>", type = "command"},
             }
+        },
+        extensions = {
+            fzf = {
+                fuzzy = true,                    -- false will only do exact matching
+                override_generic_sorter = true,  -- override the generic sorter
+                override_file_sorter = true,     -- override the file sorter
+                case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                -- the default case_mode is "smart_case"
+            }
         }
     },
     pickers = {
@@ -35,7 +44,9 @@ require('telescope').setup{
     }
 }
 
+require('telescope').load_extension('fzf')
+
 map("n", "<leader>a", ":Telescope find_files<CR>")
 map("n", "<leader>bb", ":Telescope buffers<CR>")
 map("n", "<leader>*", ":Telescope grep_string<CR>")
-map("n", "<leader>//", ":Telescope live_grep<CR>")
+map("n", "<leader>/", ":Telescope live_grep<CR>")

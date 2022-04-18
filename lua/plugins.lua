@@ -9,7 +9,7 @@ require('packer').startup(function(use)
     use 'nvim-lua/popup.nvim'
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/plenary.nvim'}},
+        requires = {{'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}},
         config = pconfig("telescope")
     }
     -- use 'dyng/ctrlsf.vim'
@@ -45,7 +45,7 @@ require('packer').startup(function(use)
         config = pconfig("ale")
     }
     use {'xlshiz/DoxygenToolkit.vim', cmd = {'Dox'}}
-    use {'numToStr/Comment.nvim', config = pconfig("comment")}
+    use {'numToStr/Comment.nvim', config = pconfig("comment"), tag = 'v0.6'}
     use {'majutsushi/tagbar', config = pconfig("tagbar")}
     -- use 'vim-scripts/taglist.vim'
     -- use 'gcmt/wildfire.vim'
