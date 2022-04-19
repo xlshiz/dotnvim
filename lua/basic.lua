@@ -30,6 +30,12 @@ function _G.Tab2SpaceMode(i)
     vim.bo.expandtab = true
     vim.bo.autoindent = true
 end
+
+function _G.KernelMode()
+    vim.bo.cindent = true
+    vim.bo.cinoptions = ":0t0(0"
+    vim.bo.tw = 78
+end
 --  }}}
 --  Settings {{{1
 -- utf8
@@ -119,8 +125,9 @@ vim.cmd(string.format('autocmd BufWritePre COMMIT_EDITMSG setlocal noundofile'))
 vim.cmd(string.format('autocmd BufWritePre MERGE_MSG setlocal noundofile'))
 vim.cmd(string.format('autocmd BufWritePre *.tmp setlocal noundofile'))
 vim.cmd(string.format('autocmd BufWritePre *.bak setlocal noundofile'))
-vim.cmd(string.format('autocmd FileType js call v:lua.Tab2SpaceMode(2)'))
+vim.cmd(string.format('autocmd FileType javascript,vue,css,scss call v:lua.Tab2SpaceMode(2)'))
 vim.cmd(string.format('autocmd FileType lua call v:lua.Tab2SpaceMode(4)'))
+vim.cmd(string.format('autocmd FileType c call v:lua.KernelMode()'))
 --}}}1
 --  Keybinding {{{1
 -- leader key 为空格
