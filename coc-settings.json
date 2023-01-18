@@ -27,5 +27,6 @@
 			}
 		}
 	},
-	"vetur.validation.template": false
+	"vetur.validation.template": false,
+	"suggest.noselect": true
 }

@@ -1,11 +1,13 @@
 local M = {}
 
-function M.map(mode, lhs, rhs)
-    local opt = {
-        noremap = true,
-        silent = true
-    }
-    vim.api.nvim_set_keymap(mode, lhs, rhs, opt)
+function M.map(mode, lhs, rhs, opts)
+    if opts == nil then
+        opts = {
+	    noremap = true,
+	    silent = true
+        }
+    end
+    vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 function M.loadall()
