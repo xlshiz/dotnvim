@@ -11,7 +11,8 @@ require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/plenary.nvim'},
         {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
-        {'desdic/telescope-rooter.nvim'}},
+        {'desdic/telescope-rooter.nvim'},
+        {'nvim-telescope/telescope-live-grep-args.nvim'}},
         config = pconfig("telescope")
     }
     -- use 'dyng/ctrlsf.vim'

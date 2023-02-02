@@ -1,6 +1,6 @@
 local map = require('utils').map
 
-require('telescope').setup{
+require('telescope').setup {
     defaults = {
         -- Default configuration for telescope goes here:
         -- config_key = value,
@@ -38,14 +38,24 @@ require('telescope').setup{
             enable = true,
             patterns = { ".git", ".project",  ".projectile" },
             debug = false
+        },
+        live_grep_args = {
+            auto_quoting = true, -- enable/disable auto-quoting
+            mappings = {
+                i = {
+                    ["<C-i>"] =  require("telescope-live-grep-args.actions").quote_prompt()
+                }
+            }
         }
     }
 }
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('rooter')
+require('telescope').load_extension('live_grep_args')
 
 map("n", "<leader>a", ":Telescope find_files<CR>")
 map("n", "<leader>bb", ":Telescope buffers<CR>")
 map("n", "<leader>*", ":Telescope grep_string<CR>")
-map("n", "<leader>/", ":Telescope live_grep<CR>")
+map("n", "<leader>/*", ":Telescope grep_string search_dirs=", {silent = false, noremap = true})
+map("n", "<leader>//", ":Telescope live_grep_args<CR>")
