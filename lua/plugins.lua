@@ -57,7 +57,6 @@ require('packer').startup(function(use)
     use {'docunext/closetag.vim', ft = {'html', 'xml'}}
     use {'tpope/vim-surround', ft = {'html', 'xml'}}
     use {'plasticboy/vim-markdown', ft = {'md', 'markdown'}}
-    use {'jceb/vim-orgmode', ft = {'org'}}
     use {'tpope/vim-speeddating', ft = {'org'}}
     use {'hdima/python-syntax', ft = {'python'}}
     use {'hynek/vim-python-pep8-indent', ft = {'python'}}
