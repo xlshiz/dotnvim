@@ -51,11 +51,46 @@ require('telescope').setup {
 }
 
 require('telescope').load_extension('fzf')
-require('telescope').load_extension('rooter')
+-- require('telescope').load_extension('rooter')
 require('telescope').load_extension('live_grep_args')
 
-map("n", "<leader>a", ":Telescope find_files<CR>")
+function _G.telescope_is_project_root()
+    local opts = {}
+    local project_path = vim.fs.find({".project", ".projectile", ".git"}, {upward = true})[1]
+    project_path = vim.fn.fnamemodify(project_path, ":h")
+    if project_path ~= nil then
+        opts = {
+            cwd = project_path,
+        }
+    end
+    return opts
+end
+
+function _G.telescope_find_files_p()
+    local opts = {}
+    local project_path = telescope_is_project_root()
+    if project_path ~= nil then
+        opts = {
+            cwd = project_path,
+        }
+    end
+    require("telescope.builtin").find_files(opts)
+end
+
+function _G.telescope_find_files_p()
+    local opts = {}
+    local project_path = telescope_is_project_root()
+    if project_path ~= nil then
+        opts = {
+            cwd = project_path,
+        }
+    end
+    require("telescope.builtin").find_files(opts)
+end
+
+map("n", "<leader>a", ':lua require("telescope.builtin").find_files(telescope_is_project_root())<CR>')
 map("n", "<leader>bb", ":Telescope buffers<CR>")
-map("n", "<leader>*", ":Telescope grep_string<CR>")
+map("n", "<leader>*", ':lua require("telescope.builtin").grep_string(telescope_is_project_root())<CR>')
 map("n", "<leader>/*", ":Telescope grep_string search_dirs=", {silent = false, noremap = true})
-map("n", "<leader>//", ":Telescope live_grep_args<CR>")
+map("n", "<leader>//", ':lua require("telescope").extensions.live_grep_args.live_grep_args(telescope_is_project_root())<CR>')
+-- map("n", "<leader>//", ":Telescope live_grep_args<CR>")

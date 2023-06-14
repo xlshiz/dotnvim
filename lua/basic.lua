@@ -41,6 +41,7 @@ end
 -- utf8
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = 'utf-8'
+vim.o.fileencodings = 'ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,default'
 -- jk移动时光标下上方保留8行
 vim.o.scrolloff = 3
 vim.o.sidescrolloff = 3
