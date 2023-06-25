@@ -16,11 +16,11 @@ function _G.WantPasteMode()
     if vim.o.paste then
         vim.cmd('set mouse-=a')
         vim.wo.signcolumn = "no"
-        vim.o.listchars = string.sub(vim.o.listchars, 0, -9)
+        vim.o.list = false
     else
         vim.cmd('set mouse+=a')
         vim.wo.signcolumn = "yes"
-        vim.o.listchars = vim.o.listchars .. ",lead:·"
+        vim.o.list = true
     end
 end
 
@@ -101,7 +101,7 @@ vim.o.termguicolors = true
 vim.opt.termguicolors = true
 -- 不可见字符的显示，这里只把空格显示为一个点
 vim.o.list = true
-vim.o.listchars = vim.o.listchars .. ",lead:·"
+vim.o.listchars = "tab:> ,nbsp:+,lead:·"
 -- 补全增强
 vim.o.wildmenu = true
 -- Dont' pass messages to |ins-completin menu|
