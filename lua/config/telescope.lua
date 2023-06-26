@@ -3,7 +3,8 @@ local map = require('utils').map
 require('telescope').setup {
     defaults = {
         -- Default configuration for telescope goes here:
-        -- config_key = value,
+        -- layout_strategy = 'bottom_pane',
+        layout_strategy = 'vertical',
         mappings = {
             i = {
                 -- map actions.which_key to <C-h> (default: <C-/>)
@@ -22,7 +23,7 @@ require('telescope').setup {
         -- picker_name = {
         --   picker_config_key = value,
         --   ...
-        -- 
+        --
         -- Now the picker_config_key will be applied every time you call this
         -- builtin picker
     },
