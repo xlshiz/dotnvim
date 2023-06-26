@@ -27,4 +27,8 @@ function M.config(name)
     return string.format("require('config/' .. '%s')", name)
 end
 
+function M.setup(name)
+    return string.format("require('%s').setup()", name)
+end
+
 return M

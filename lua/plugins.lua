@@ -1,4 +1,5 @@
 local pconfig = require('utils').config
+local psetup = require('utils').setup
 local map = require('utils').map
 
 require('packer').startup(function(use)
@@ -50,6 +51,10 @@ require('packer').startup(function(use)
     use {'xlshiz/DoxygenToolkit.vim', cmd = {'Dox'}}
     use {'numToStr/Comment.nvim', config = pconfig("comment"), tag = 'v0.6'}
     use {'majutsushi/tagbar', config = pconfig("tagbar")}
+    use {
+        'dhananjaylatkar/cscope_maps.nvim',
+        config = pconfig("cscope_maps")
+    }
     -- use 'vim-scripts/taglist.vim'
     -- use 'gcmt/wildfire.vim'
 
