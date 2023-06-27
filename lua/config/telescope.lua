@@ -5,6 +5,7 @@ require('telescope').setup {
         -- Default configuration for telescope goes here:
         -- layout_strategy = 'bottom_pane',
         layout_strategy = 'vertical',
+        layout_config = {preview_cutoff = 30, preview_height = 0.3},
         mappings = {
             i = {
                 -- map actions.which_key to <C-h> (default: <C-/>)
