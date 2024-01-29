@@ -35,6 +35,8 @@ function _G.KernelMode()
     vim.bo.cindent = true
     vim.bo.cinoptions = ":0t0(0"
     vim.bo.tw = 78
+    vim.o.wrap = true
+    vim.wo.wrap = true
 end
 --  }}}
 --  Settings {{{1
@@ -72,9 +74,9 @@ vim.o.cmdheight = 1
 -- 当文件被外部程序修改时，自动加载
 vim.o.autoread = true
 vim.bo.autoread = true
--- 禁止折行
-vim.o.wrap = false
-vim.wo.wrap = false
+-- 折行
+vim.o.wrap = true
+vim.wo.wrap = true
 -- 行结尾可以跳到下一行
 vim.o.whichwrap = 'b,s,<,>,[,]'
 -- 允许隐藏被修改过的buffer
